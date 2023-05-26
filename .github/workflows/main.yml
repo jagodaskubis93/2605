@@ -1,11 +1,14 @@
 name: Main
 on:
-  pull_request:
+  push:
     branches: [main]
   workflow_dispatch:
 jobs:
   build:
     runs-on: Ubuntu-latest
+    strategy:
+      matrix:
+        node_version: ['12', '14', '16']
     steps:
     - name: Step 1
       uses: actions/checkout@v2
