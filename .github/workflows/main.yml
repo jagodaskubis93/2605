@@ -1,0 +1,19 @@
+name: Main
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: Ubuntu-latest
+    steps:
+    - name: Step 1
+      uses: actions/checkout@v2
+    - name: Step 2
+      uses: actions/setup-node@v2
+      with:
+        node-version: "14.x"
+    - name: Instalacje dependencji
+      run: npm install
+    - name: Uruchomienie testów
+      run: npm test
